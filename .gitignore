@@ -46,6 +46,7 @@ testem.log
 Thumbs.db
 
 # Nx
+.nx/
 .nx/cache
 .nx/workspace-data
 .nx/daemon
