@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compileOnSave": false,
+  "files": [],
+  "references": [
+    {
+      "path": "./apps/bbq_weather"
+    },
+    {
+      "path": "./api-e2e"
+    },
+    {
+      "path": "./api"
+    }
+  ]
+}
