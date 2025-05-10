@@ -1,36 +1,48 @@
 # See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
-# compiled output
-dist
-tmp
-out-tsc
-build
-.next
-out
-
-# dependencies
+# Dependencies
 node_modules
 .pnp
 .pnp.js
 
-# testing
+# Build outputs
+dist
+build
+.next
+out
+tmp
+out-tsc
+
+# Testing
 coverage
 .nyc_output
 test-output
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# Nx
+.nx/
+.nx/cache
+.nx/workspace-data
+
+# Environment
+.env*
+!.env.example
+
+# IDE
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.idea
+
+# System
+.DS_Store
+Thumbs.db
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # misc
 /.sass-cache
@@ -40,29 +52,6 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
-
-# System Files
-.DS_Store
-Thumbs.db
-
-# Nx
-.nx/
-.nx/cache
-.nx/workspace-data
-.nx/daemon
-.nx/daemon.sock
-
-# Environment
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Debug
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
 # Local Netlify folder
 .netlify
