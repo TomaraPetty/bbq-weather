@@ -2,6 +2,14 @@
   "name": "api",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "start": "nx serve api",
+    "start:dev": "nx serve api --watch",
+    "start:debug": "nx serve api --inspect",
+    "start:prod": "nx serve api --prod",
+    "build": "nx build api",
+    "test": "nx test api"
+  },
   "nx": {
     "targets": {
       "build": {
