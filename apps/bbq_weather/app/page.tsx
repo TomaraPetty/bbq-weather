@@ -1,6 +1,4 @@
 'use client';
-'use client';
-'use client';
 
 import { useEffect, useState } from 'react';
 import { Input } from '../../bbq_weather/components/ui/input';
