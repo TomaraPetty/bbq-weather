@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import CityDialog from './components/CityDialog';
 import Hero from './components/Hero';
 import WeatherDisplay from './components/WeatherDisplay';
+import { Loader2 } from 'lucide-react';
 
 export interface WeatherData {
   list: Array<{
@@ -58,10 +59,15 @@ export default function Home() {
           <Hero />
           {!isOpen && (
             <Button
+              disabled={loading}
               className="text-xl bg-white text-red-500 mb-6"
               onClick={() => setIsOpen(true)}
             >
-              Check Weather
+              {loading ? (
+                <Loader2 className="animate-spin" />
+              ) : (
+                'Check Weather'
+              )}
             </Button>
           )}
           {isOpen && (
@@ -71,7 +77,12 @@ export default function Home() {
               onSave={setCity}
             />
           )}
-          <WeatherDisplay loading={loading} error={error} weather={weather} city={city} />
+          <WeatherDisplay
+            loading={loading}
+            error={error}
+            weather={weather}
+            city={city}
+          />
         </div>
       </div>
     </div>
