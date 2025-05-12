@@ -7,8 +7,8 @@ export default function Hero() {
         Suns out, grills out!
       </h1>
       <p className="text-2xl text-white/90 mb-4">
-        Check the weather for your area to see if you should fire up the
-        grill this week.
+        Check the weather in your area to see if you should fire up the
+        grill today.
       </p>
     </>
   );
