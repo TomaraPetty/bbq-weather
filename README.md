@@ -1,3 +1,49 @@
+# BBQ Weather
+
+BBQ Weather is a Next.js app (in an Nx monorepo) that lets you check if the weather in your city is good for grilling. Enter a city, and the app tells you how many days this week are perfect for BBQ (between 60°F and 85°F).
+
+## Features
+- Enter any city and get a weather forecast
+- See if the weather is suitable for BBQing
+- Responsive UI with shadcn components
+
+## Getting Started (Local Development)
+
+1. **Install dependencies:**
+   Run this command in these directories: `root`, `apps/bbq_weather` and, `api` 
+   ```
+   npm install
+   ```
+
+2. **Run the dev server:**
+    First start the api, `cd` into the `api` directory and run this command:
+   ```
+   npm run start
+   ```
+   The app will be available at [http://localhost:5232](http://localhost:5232).
+
+3. **Run the dev client**
+    Now start the client. `cd` into `apps/bbq_weather` directory and run this command:
+   ```
+   npm run dev
+   ```
+   The app will be available at [http://localhost:3000](http://localhost:3000).
+
+4. **Build for production:**
+   ```
+   npx nx build bbq_weather
+   ```
+
+5. **Run tests:**
+    To execute jest tests: run below command in `api` directory for backend tests or `apps/bbq_weather` directory for frontend tests.
+   ```
+   npm run test 
+   ```
+
+---
+
+If you have any issues, check your Nx/Next.js version or open an issue or email me: tomara.petty@gmail.com.
+
 # 
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
