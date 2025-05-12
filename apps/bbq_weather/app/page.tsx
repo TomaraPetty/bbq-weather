@@ -60,7 +60,7 @@ export default function Home() {
           {!isOpen && (
             <Button
               disabled={loading}
-              className="text-xl bg-white text-red-500 mb-6"
+              className="text-xl bg-white text-red-500 mb-6 hover:bg-white/90"
               onClick={() => setIsOpen(true)}
             >
               {loading ? (

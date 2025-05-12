@@ -15,37 +15,54 @@ export default function WeatherDisplay({
   city,
 }: WeatherDisplayProps) {
   const currentWeather = weather?.list?.[0];
-  const bbqEvaluator = currentWeather ? weather?.list.filter((weather) => {
-    const tempF = cToF(weather.main.temp);
-    return tempF > 60 && tempF < 85;
-  }) : [];
+  const bbqEvaluator = currentWeather
+    ? weather?.list.filter((weather) => {
+        const tempF = cToF(weather.main.temp);
+        return tempF > 60 && tempF < 85;
+      })
+    : [];
   const bbqDays = currentWeather ? bbqEvaluator?.length : 0;
   try {
     if (!city) {
       return (
-        <p className="text-xl text-white/90">
-          Select a city to see weather details
-        </p>
+        <div className="w-3/5 mx-auto flex flex-col items-center text-center text-white/90 text-xl bg-white/10 p-4 rounded-lg gap-6">
+          <p>Select a city to see weather details.</p>
+        </div>
       );
     }
     if (loading) {
-      return <p className="text-xl text-white/90">Loading weather data...</p>;
+      return (
+        <div className="w-3/5 mx-auto flex flex-col items-center text-center text-white/90 text-xl bg-white/10 p-4 rounded-lg gap-6">
+          <p>Loading weather data...</p>
+        </div>
+      );
     }
     if (error) {
-      return <p className="text-xl text-white/90">Error: {error}</p>;
+      return (
+        <div className="w-3/5 mx-auto flex flex-col items-center text-center text-white/90 text-xl bg-white/10 p-4 rounded-lg gap-6">
+          <p>Error: {error}</p>
+        </div>
+      );
     }
     if (currentWeather) {
       return (
-        <div className="text-xl text-white/90">
+        <div className="w-3/5 mx-auto flex flex-col items-center text-center text-white/90 text-xl bg-white/10 p-4 rounded-lg gap-6">
+          <p>
+            {bbqDays > 0 ? (
+              <>
+                Holy smokes! <br />
+                You can grill {bbqDays} days this week. Get ready to fire up that grill.
+              </>
+            ) : (
+              "Unfortunately, this week is not great for grilling. There's always next week. Come back and check again soon!"
+            )}
+          </p>
           <p>
             The weather in {city} is currently{' '}
             {Math.round(cToF(currentWeather.main.temp))}&deg;F with {currentWeather.weather[0].description}.
           </p>
           <p className="mt-2">
             Feels like {Math.round(cToF(currentWeather.main.feels_like))}&deg;F
-          </p>
-          <p className="mt-2">
-            You can grill {bbqDays} days this week.
           </p>
         </div>
       );
@@ -54,15 +71,13 @@ export default function WeatherDisplay({
     console.error(e);
   }
   return (
-    <>
-      <p className="text-xl text-white/90 mx-auto w-3/5">
-        That might not have been a proper city name. Please try again but this
-        time don&apos;t mess up.
+    <div className="w-3/5 mx-auto flex flex-col items-center text-center text-white/90 text-xl bg-white/10 p-4 rounded-lg gap-6">
+      <p>
+        That might not have been a proper city name. Please check your spelling and try again.
       </p>
-    </>
+    </div>
   );
 }
 function cToF(temp: number) {
-  return temp * 9 / 5 + 32;
+  return (temp * 9) / 5 + 32;
 }
-
