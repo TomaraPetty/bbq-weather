@@ -8,7 +8,7 @@
     "start:debug": "nx serve api --inspect",
     "start:prod": "nx serve api --prod",
     "build": "nx build api",
-    "test": "nx test api"
+    "test": "jest"
   },
   "nx": {
     "targets": {
