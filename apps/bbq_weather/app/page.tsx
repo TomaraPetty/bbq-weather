@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Input } from '../../bbq_weather/components/ui/input';
+import { Button } from '@/components/ui/button';
 
 interface WeatherData {
   list: Array<{
@@ -49,7 +50,9 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-orange-500 to-red-600">
       <div className="container mx-auto px-4 py-16">
         <div className="text-center">
-          <h1 className="text-[8rem] font-bold text-white mb-4">Check for BBQ weather</h1>
+          <h1 className="text-8xl font-bold text-white mb-6">Suns out, grills out!</h1>
+          <p className="text-2xl text-white/90 mb-4">Check the weather for your area to see if you should fire up the grill this week.</p>
+          <Button className="text-xl bg-white text-red-500 mb-6">Check Weather</Button>
           <Input className="text-5xl font-bold text-white mb-4" type="text" value={city} onChange={(e) => setCity(e.target.value)} />
           {loading ? (
             <p className="text-xl text-white/90">Loading weather data...</p>
