@@ -39,7 +39,7 @@ export default function WeatherDisplay({
         <div className="text-xl text-white/90">
           <p>
             The weather in {city} is currently{' '}
-            {Math.round(cToF(currentWeather.main.temp))}&deg;F and {currentWeather.weather[0].description}
+            {Math.round(cToF(currentWeather.main.temp))}&deg;F with {currentWeather.weather[0].description}.
           </p>
           <p className="mt-2">
             Feels like {Math.round(cToF(currentWeather.main.feels_like))}&deg;F
