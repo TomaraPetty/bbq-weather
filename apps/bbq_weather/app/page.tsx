@@ -4,8 +4,9 @@ import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import CityDialog from './components/CityDialog';
 import Hero from './components/Hero';
+import WeatherDisplay from './components/WeatherDisplay';
 
-interface WeatherData {
+export interface WeatherData {
   list: Array<{
     dt: number;
     main: {
@@ -50,8 +51,6 @@ export default function Home() {
     }
   }, [city]);
 
-  const currentWeather = weather?.list[0];
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-orange-500 to-red-600">
       <div className="container mx-auto px-4 py-16">
@@ -72,23 +71,7 @@ export default function Home() {
               onSave={setCity}
             />
           )}
-          {loading ? (
-            <p className="text-xl text-white/90">Loading weather data...</p>
-          ) : error ? (
-            <p className="text-xl text-white/90">Error: {error}</p>
-          ) : currentWeather ? (
-            <div className="text-xl text-white/90">
-              <p>
-                The weather in {city} is currently {Math.round(currentWeather.main.temp)}
-                &deg;C and {currentWeather.weather[0].description}
-              </p>
-              <p className="mt-2">
-                Feels like {Math.round(currentWeather.main.feels_like)}&deg;C
-              </p>
-            </div>
-          ) : (
-            <p className="text-xl text-white/90">No weather data available</p>
-          )}
+          <WeatherDisplay loading={loading} error={error} weather={weather} city={city} />
         </div>
       </div>
     </div>

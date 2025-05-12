@@ -28,7 +28,7 @@ export class WeatherService {
     try {
       const { lat, lon } = await this.getCoordinates(city);
       const response = await axios.get(
-        `${this.baseUrl}/forecast?lat=${lat}&lon=${lon}&appid=${this.apiKey}&units=metric`
+        `${this.baseUrl}/forecast?lat=${lat}&lon=${lon}&cnt=7&appid=${this.apiKey}&units=metric`
       );
       return response.data;
     } catch (error) {
