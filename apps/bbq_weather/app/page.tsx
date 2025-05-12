@@ -1,8 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Input } from '../../bbq_weather/components/ui/input';
 import { Button } from '@/components/ui/button';
+import CityDialog from './components/CityDialog';
+import Hero from './components/Hero';
 
 interface WeatherData {
   list: Array<{
@@ -21,13 +22,16 @@ interface WeatherData {
 export default function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [city, setCity] = useState('Austin');
+  const [error, setError] = useState<string | null>();
+  const [city, setCity] = useState<string | null>(null);
+  const [isOpen, setIsOpen] = useState(false);
   const fetchWeather = async (city: string) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`/api/weather?city=${encodeURIComponent(city)}`);
+      const response = await fetch(
+        `/api/weather?city=${encodeURIComponent(city)}`
+      );
       if (!response.ok) {
         throw new Error('Failed to fetch weather data');
       }
@@ -41,7 +45,9 @@ export default function Home() {
   };
 
   useEffect(() => {
-    fetchWeather(city);
+    if (city) {
+      fetchWeather(city);
+    }
   }, [city]);
 
   const currentWeather = weather?.list[0];
@@ -50,10 +56,22 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-b from-orange-500 to-red-600">
       <div className="container mx-auto px-4 py-16">
         <div className="text-center">
-          <h1 className="text-8xl font-bold text-white mb-6">Suns out, grills out!</h1>
-          <p className="text-2xl text-white/90 mb-4">Check the weather for your area to see if you should fire up the grill this week.</p>
-          <Button className="text-xl bg-white text-red-500 mb-6">Check Weather</Button>
-          <Input className="text-5xl font-bold text-white mb-4" type="text" value={city} onChange={(e) => setCity(e.target.value)} />
+          <Hero />
+          {!isOpen && (
+            <Button
+              className="text-xl bg-white text-red-500 mb-6"
+              onClick={() => setIsOpen(true)}
+            >
+              Check Weather
+            </Button>
+          )}
+          {isOpen && (
+            <CityDialog
+              isOpen={isOpen}
+              onOpenChange={setIsOpen}
+              onSave={setCity}
+            />
+          )}
           {loading ? (
             <p className="text-xl text-white/90">Loading weather data...</p>
           ) : error ? (
@@ -61,8 +79,8 @@ export default function Home() {
           ) : currentWeather ? (
             <div className="text-xl text-white/90">
               <p>
-                The weather is currently {Math.round(currentWeather.main.temp)}&deg;C
-                and {currentWeather.weather[0].description}
+                The weather in {city} is currently {Math.round(currentWeather.main.temp)}
+                &deg;C and {currentWeather.weather[0].description}
               </p>
               <p className="mt-2">
                 Feels like {Math.round(currentWeather.main.feels_like)}&deg;C
