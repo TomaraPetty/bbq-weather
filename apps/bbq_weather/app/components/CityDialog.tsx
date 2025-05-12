@@ -6,7 +6,8 @@ import {
   DialogTitle,
   DialogFooter,
   DialogClose
-} from '../../components/ui/dialog';
+} from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 
 interface CityDialogProps {
   isOpen: boolean;
@@ -31,12 +32,12 @@ export default function CityDialog({ isOpen, onOpenChange, onSave }: CityDialogP
         />
         <DialogFooter>
           <DialogClose asChild>
-            <button
-              className="bg-red-500 text-white px-4 py-2 rounded"
+            <Button
+              className="bg-gradient-to-b from-orange-500 to-red-600 text-white text-md px-4 py-2 rounded"
               onClick={() => onSave(input)}
             >
               Check City
-            </button>
+            </Button>
           </DialogClose>
         </DialogFooter>
       </DialogContent>
