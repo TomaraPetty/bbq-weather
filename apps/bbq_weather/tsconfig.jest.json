@@ -16,10 +16,5 @@
     "components/**/*.spec.ts",
     "components/**/*.test.tsx",
     "components/**/*.spec.tsx"
-  ],
-  "references": [
-    {
-      "path": "./tsconfig.json"
-    }
   ]
-}
+} 
