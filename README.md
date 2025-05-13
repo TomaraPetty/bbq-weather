@@ -6,28 +6,28 @@ This document outlines the current architecture, dependencies, and future develo
 
 ## 🚀 Features
 
-- ** BBQ Suitability Forecast**  
+- **BBQ Suitability Forecast**  
   Provides real-time and forecasted weather data tailored to BBQ planning.
 
-- ** Modular Frontend Architecture**  
+- **Modular Frontend Architecture**  
   Built with **React** for clean, maintainable, and component-based UI development.
 
-- ** Utility-First Styling**  
+- **Utility-First Styling**  
   Styled with **Tailwind CSS** for fast, responsive design using utility classes.
 
-- ** Dynamic UI Components**  
+- **Dynamic UI Components**  
   Uses **shadcn/ui** for flexible and accessible UI components built on top of Radix UI.
 
-- ** Robust Backend API**  
+- **Robust Backend API**  
   Powered by **NestJS**, offering a scalable and type-safe backend built with Node.js and TypeScript.
 
-- ** Full Testing Coverage**  
+- **Full Testing Coverage**  
   Uses **Jest** for unit and integration tests across both frontend and backend codebases.
 
-- ** Continuous Integration**  
+- **Continuous Integration**  
   Automated testing and build pipelines configured via **GitHub Actions** for consistent CI/CD.
 
-- ** Nx Monorepo**  
+- **Nx Monorepo**  
   Managed with **Nx** to organize code, share libraries, and streamline development across multiple apps and libraries.
 
 ## MVP Functionality
