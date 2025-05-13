@@ -7,6 +7,8 @@ This document outlines the current architecture, dependencies, and future develo
 
 ## Table of Contents
 
+- [Video Demo](#video-demo)
+- [Example entries](#example-entries-with-responses)
 - [Features](#features)
 - [MVP Functionality](#mvp-functionality)
 - [Current Limitations](#current-limitations)
@@ -23,6 +25,10 @@ This document outlines the current architecture, dependencies, and future develo
 - [Scaling the App](#1-scaling-the-application)
 - [User Management & Paywall](#2--user-management--paywall)
 - [Useful links](#useful-links)
+
+## Video Demo
+
+### Example entries with responses
 
 ## 🚀 Features
 
@@ -116,7 +122,7 @@ npm install
 
 Navigate to the API directory and start the NestJS server:
 ```
-cd api
+cd api/
 npm run start
 ```
 The API will be available at: [http://localhost:5232](http://localhost:5232).
