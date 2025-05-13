@@ -3,6 +3,7 @@
 BBQ Weather is a weather-focused web application designed to help users determine optimal BBQ days based on real-time and forecasted weather data from the OpenWeather API. It is built as an Nx monorepo for scalability and maintainability.
 
 This document outlines the current architecture, dependencies, and future development plans for scaling and monetizing the application.
+![Screenshot 2025-05-13 at 12 08 07 PM](https://github.com/user-attachments/assets/44b49134-b297-4b0a-94eb-f55e2c3012da)
 
 ## Table of Contents
 
@@ -16,7 +17,7 @@ This document outlines the current architecture, dependencies, and future develo
 - [Run Backend API](#2-run-the-backend-api)
 - [Swagger API Docs](#3-swagger-api-docs)
 - [Run Frontend App](#4-run-the-frontend-app)
-- [Build PROD](#5-build-for-production)
+- [Build Production](#5-build-for-production)
 - [Tests](#6-run-tests)
 - [Future Plans](#-future-plans)
 - [Scaling the App](#1-scaling-the-application)
@@ -45,6 +46,8 @@ This document outlines the current architecture, dependencies, and future develo
 
 - **Continuous Integration**  
   Automated testing and build pipelines configured via **GitHub Actions** for consistent CI/CD.
+  ![Screenshot 2025-05-13 at 12 35 16 PM](https://github.com/user-attachments/assets/ad922b46-0bba-452f-9d24-a85294e1ae0f)
+  ![Screenshot 2025-05-13 at 12 36 38 PM](https://github.com/user-attachments/assets/78b07b6f-2559-418d-9e12-888e09aa00ba)
 
 - **Nx Monorepo**  
   Managed with **Nx** to organize code, share libraries, and streamline development across multiple apps and libraries.
@@ -123,7 +126,7 @@ Example forecast route: http://localhost:5232/api/weather/forecast?city=Portland
 ### 3. **Swagger API Docs**
 While the API is running you can also find Swagger documentation about the endpoint:
 http://localhost:5232/api/#/Weather/WeatherController_getForecast
-
+![Screenshot 2025-05-13 at 12 34 26 PM](https://github.com/user-attachments/assets/9aff92a4-683c-4c37-aabe-2afced169dca)
 
 ### 4. **Run the Frontend App**
 In a new terminal, start the client app:
