@@ -146,9 +146,9 @@ npm run test
 
 ---
 
-### 2. 👥 User Management & Paywall
+### 2. 🔐 User Management & Paywall
 
-#### 🔐 Authentication
+#### Authentication
 
 - Integrate third-party authentication with Auth0, Firebase, or NextAuth
 - Support user sessions with full login/signup flow
@@ -180,7 +180,7 @@ If you have any issues, open an issue or email: tomara.petty@gmail.com.
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
+✨ [Nx workspace](https://nx.dev) ✨.
 
 [Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/next?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
 
@@ -253,8 +253,3 @@ Learn more:
 - [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 - [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
