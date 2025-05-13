@@ -4,7 +4,7 @@ BBQ Weather is a weather-focused web application designed to help users determin
 
 This document outlines the current architecture, dependencies, and future development plans for scaling and monetizing the application.
 
-## 📚 Table of Contents
+## Table of Contents
 
 - [Features](#features)
 - [MVP Functionality](#mvp-functionality)
@@ -62,6 +62,7 @@ This document outlines the current architecture, dependencies, and future develo
 
 - Static hosting/development environment.
 
+- Test configuration is set up but more tests need to be created for full jest and e2e test coverage.
 
 ## Current Limitations
 - API Rate Limits: The free-tier OpenWeather API has strict limits. Exceeding usage may result in throttling or downtime.
@@ -75,8 +76,6 @@ This document outlines the current architecture, dependencies, and future develo
 ## 🚧 Getting Started (Local Development)
 
 Follow these steps to get BBQ Weather running locally in a development environment.
-
----
 
 ### Clone the repo:
 ```bash
@@ -92,6 +91,8 @@ Create a `.env` file in the root of the project (and/or in `apps/api` if your AP
 ```env
 OPENWEATHER_API_KEY='your-api-key'
 ```
+
+This can also be found in the `env.example`.
 
 🌦️ This key is required to fetch weather data from the OpenWeather API. You can get one by signing up at https://openweathermap.org/api.
 
@@ -120,6 +121,9 @@ The API will be available at: [http://localhost:5232](http://localhost:5232).
 Example forecast route: http://localhost:5232/api/weather/forecast?city=Portland
 
 ### 3. **Swagger API Docs**
+While the API is running you can also find Swagger documentation about the endpoint:
+http://localhost:5232/api/#/Weather/WeatherController_getForecast
+
 
 ### 4. **Run the Frontend App**
 In a new terminal, start the client app:
@@ -131,9 +135,9 @@ The client will be available at: [http://localhost:3000](http://localhost:3000).
 
 ### 5. **Build for production:**
 To build the frontend app using Nx:
-   ```
-   npx nx build bbq_weather
-   ```
+```
+npx nx build bbq_weather
+```
 
 ### 6. **Run tests:**
 To run Jest tests for frontend or backend:
