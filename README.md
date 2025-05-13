@@ -116,7 +116,7 @@ npm install
 
 Navigate to the API directory and start the NestJS server:
 ```
-cd apps/api
+cd api
 npm run start
 ```
 The API will be available at: [http://localhost:5232](http://localhost:5232).
