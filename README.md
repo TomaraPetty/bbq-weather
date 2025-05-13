@@ -4,6 +4,25 @@ BBQ Weather is a weather-focused web application designed to help users determin
 
 This document outlines the current architecture, dependencies, and future development plans for scaling and monetizing the application.
 
+## Table of Contents
+
+- [Features](#features)
+- [MVP Functionality](#mvp-functionality)
+- [Current Limitations](#current-limitations)
+- [Getting Started](#-getting-started-local-development)
+- [Environment Variables](#environment-variables)
+- [Clone the repo](#clone-the-repo)
+- [Install Dependencies](#1-install-dependencies)
+- [Run Backend API](#2-run-the-backend-api)
+- [Swagger API Docs](#3-swagger-api-docs)
+- [Run Frontend App](#4-run-the-frontend-app)
+- [Build PROD](#5-build-for-production)
+- [Tests](#6-run-tests)
+- [Future Plans](#-future-plans)
+- [Scaling the App](#1-scaling-the-application)
+- [User Management & Paywall](#2--user-management--paywall)
+- [Useful links](#useful-links)
+
 ## 🚀 Features
 
 - **BBQ Suitability Forecast**  
@@ -43,6 +62,7 @@ This document outlines the current architecture, dependencies, and future develo
 
 - Static hosting/development environment.
 
+- Test configuration is set up but more tests need to be created for full jest and e2e test coverage.
 
 ## Current Limitations
 - API Rate Limits: The free-tier OpenWeather API has strict limits. Exceeding usage may result in throttling or downtime.
@@ -56,8 +76,6 @@ This document outlines the current architecture, dependencies, and future develo
 ## 🚧 Getting Started (Local Development)
 
 Follow these steps to get BBQ Weather running locally in a development environment.
-
----
 
 ### Clone the repo:
 ```bash
@@ -73,6 +91,8 @@ Create a `.env` file in the root of the project (and/or in `apps/api` if your AP
 ```env
 OPENWEATHER_API_KEY='your-api-key'
 ```
+
+This can also be found in the `env.example`.
 
 🌦️ This key is required to fetch weather data from the OpenWeather API. You can get one by signing up at https://openweathermap.org/api.
 
@@ -98,7 +118,14 @@ npm run start
 ```
 The API will be available at: [http://localhost:5232](http://localhost:5232).
 
-### 3. **Run the Frontend App**
+Example forecast route: http://localhost:5232/api/weather/forecast?city=Portland
+
+### 3. **Swagger API Docs**
+While the API is running you can also find Swagger documentation about the endpoint:
+http://localhost:5232/api/#/Weather/WeatherController_getForecast
+
+
+### 4. **Run the Frontend App**
 In a new terminal, start the client app:
 ```
 cd apps/bbq_weather
@@ -106,13 +133,13 @@ npm run dev
 ```
 The client will be available at: [http://localhost:3000](http://localhost:3000).
 
-### 4. **Build for production:**
+### 5. **Build for production:**
 To build the frontend app using Nx:
-   ```
-   npx nx build bbq_weather
-   ```
+```
+npx nx build bbq_weather
+```
 
-### 5. **Run tests:**
+### 6. **Run tests:**
 To run Jest tests for frontend or backend:
 Backend (NestJS API):
 ```
@@ -146,9 +173,9 @@ npm run test
 
 ---
 
-### 2. 👥 User Management & Paywall
+### 2. 🔐 User Management & Paywall
 
-#### 🔐 Authentication
+#### Authentication
 
 - Integrate third-party authentication with Auth0, Firebase, or NextAuth
 - Support user sessions with full login/signup flow
@@ -176,73 +203,6 @@ npm run test
 
 If you have any issues, open an issue or email: tomara.petty@gmail.com.
 
-# 
-
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
-
-✨ Your new, shiny [Nx workspace](https://nx.dev) is almost ready ✨.
-
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/next?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
-
-## Finish your CI setup
-
-[Click here to finish setting up your workspace!](https://cloud.nx.app/connect/FdX4s6r7rf)
-
-
-## Run tasks
-
-To run the dev server for your app, use:
-
-```sh
-npx nx dev bbq_weather
-```
-
-To create a production bundle:
-
-```sh
-npx nx build bbq_weather
-```
-
-To see all available targets to run for a project, run:
-
-```sh
-npx nx show project bbq_weather
-```
-
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
-
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/next:app demo
-```
-
-To generate a new library, use:
-
-```sh
-npx nx g @nx/react:lib mylib
-```
-
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
-
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
 ## Useful links
 
@@ -253,8 +213,3 @@ Learn more:
 - [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 - [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
