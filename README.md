@@ -4,6 +4,25 @@ BBQ Weather is a weather-focused web application designed to help users determin
 
 This document outlines the current architecture, dependencies, and future development plans for scaling and monetizing the application.
 
+## 📚 Table of Contents
+
+- [Features](#features)
+- [MVP Functionality](#mvp-functionality)
+- [Current Limitations](#current-limitations)
+- [Getting Started](#-getting-started-local-development)
+- [Environment Variables](#environment-variables)
+- [Clone the repo](#clone-the-repo)
+- [Install Dependencies](#1-install-dependencies)
+- [Run Backend API](#2-run-the-backend-api)
+- [Swagger API Docs](#3-swagger-api-docs)
+- [Run Frontend App](#4-run-the-frontend-app)
+- [Build PROD](#5-build-for-production)
+- [Tests](#6-run-tests)
+- [Future Plans](#-future-plans)
+- [Scaling the App](#1-scaling-the-application)
+- [User Management & Paywall](#2--user-management--paywall)
+- [Useful links](#useful-links)
+
 ## 🚀 Features
 
 - **BBQ Suitability Forecast**  
@@ -98,7 +117,11 @@ npm run start
 ```
 The API will be available at: [http://localhost:5232](http://localhost:5232).
 
-### 3. **Run the Frontend App**
+Example forecast route: http://localhost:5232/api/weather/forecast?city=Portland
+
+### 3. **Swagger API Docs**
+
+### 4. **Run the Frontend App**
 In a new terminal, start the client app:
 ```
 cd apps/bbq_weather
@@ -106,13 +129,13 @@ npm run dev
 ```
 The client will be available at: [http://localhost:3000](http://localhost:3000).
 
-### 4. **Build for production:**
+### 5. **Build for production:**
 To build the frontend app using Nx:
    ```
    npx nx build bbq_weather
    ```
 
-### 5. **Run tests:**
+### 6. **Run tests:**
 To run Jest tests for frontend or backend:
 Backend (NestJS API):
 ```
