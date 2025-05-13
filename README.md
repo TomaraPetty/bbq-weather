@@ -1,48 +1,104 @@
-# BBQ Weather
+# 🌤 BBQ Weather
 
-BBQ Weather is a Next.js app (in an Nx monorepo) that lets you check if the weather in your city is good for grilling. Enter a city, and the app tells you how many days this week are perfect for BBQ (between 60°F and 85°F).
+BBQ Weather is a weather-focused web application designed to help users determine optimal BBQ days based on real-time and forecasted weather data from the OpenWeather API. It is built as an Nx monorepo for scalability and maintainability.
 
-## Features
-- Enter any city and get a weather forecast
-- See if the weather is suitable for BBQing
-- Responsive UI with shadcn components
+This document outlines the current architecture, dependencies, and future development plans for scaling and monetizing the application.
 
-## Getting Started (Local Development)
+## 🚀 Features
 
-1. **Install dependencies:**
-   Run this command in these directories: `root`, `apps/bbq_weather` and, `api` 
-   ```
-   npm install
-   ```
+- ** BBQ Suitability Forecast**  
+  Provides real-time and forecasted weather data tailored to BBQ planning.
 
-2. **Run the dev server:**
-    First start the api, `cd` into the `api` directory and run this command:
-   ```
-   npm run start
-   ```
-   The app will be available at [http://localhost:5232](http://localhost:5232).
+- ** Modular Frontend Architecture**  
+  Built with **React** for clean, maintainable, and component-based UI development.
 
-3. **Run the dev client**
-    Now start the client. `cd` into `apps/bbq_weather` directory and run this command:
-   ```
-   npm run dev
-   ```
-   The app will be available at [http://localhost:3000](http://localhost:3000).
+- ** Utility-First Styling**  
+  Styled with **Tailwind CSS** for fast, responsive design using utility classes.
 
-4. **Build for production:**
+- ** Dynamic UI Components**  
+  Uses **shadcn/ui** for flexible and accessible UI components built on top of Radix UI.
+
+- ** Robust Backend API**  
+  Powered by **NestJS**, offering a scalable and type-safe backend built with Node.js and TypeScript.
+
+- ** Full Testing Coverage**  
+  Uses **Jest** for unit and integration tests across both frontend and backend codebases.
+
+- ** Continuous Integration**  
+  Automated testing and build pipelines configured via **GitHub Actions** for consistent CI/CD.
+
+- ** Nx Monorepo**  
+  Managed with **Nx** to organize code, share libraries, and streamline development across multiple apps and libraries.
+
+## 🚧 Getting Started (Local Development)
+
+Follow these steps to get BBQ Weather running locally in a development environment.
+
+---
+
+### 1. **Install Dependencies**
+
+From the project root, run the following to install all dependencies across the monorepo.
+```bash
+npm install
+```
+
+### 2. **Run the Backend API:**
+
+Navigate to the API directory and start the NestJS server:
+```
+cd apps/api
+npm run start
+```
+The API will be available at: [http://localhost:5232](http://localhost:5232).
+
+### 3. **Run the Frontend App**
+In a new terminal, start the client app:
+```
+cd apps/bbq_weather
+npm run dev
+```
+The client will be available at: [http://localhost:3000](http://localhost:3000).
+
+### 4. **Build for production:**
+To build the frontend app using Nx:
    ```
    npx nx build bbq_weather
    ```
 
-5. **Run tests:**
-    To execute jest tests: run below command in `api` directory for backend tests or `apps/bbq_weather` directory for frontend tests.
-   ```
-   npm run test 
-   ```
+### 5. **Run tests:**
+To run Jest tests for frontend or backend:
+Backend (NestJS API):
+```
+cd apps/api
+npm run test
+```
+Frontend (React App):
+```
+cd apps/bbq_weather
+npm run test
+```
 
 ---
 
-If you have any issues, check your Nx/Next.js version or open an issue or email me: tomara.petty@gmail.com.
+## 🔐 Environment Variables
+
+To run the application locally, you'll need to set up the required environment variables.
+
+Create a `.env` file in the root of the project (and/or in `apps/api` if your API reads from local `.env` files) with the following:
+
+```env
+OPENWEATHER_API_KEY='your-api-key'
+```
+
+🌦️ This key is required to fetch weather data from the OpenWeather API. You can get one by signing up at https://openweathermap.org/api.
+
+Notes
+The backend (NestJS) uses dotenv to load variables automatically on startup.
+
+Avoid committing .env files to version control. Be sure to add .env to your .gitignore.
+
+If you have any issues, open an issue or email: tomara.petty@gmail.com.
 
 # 
 
