@@ -16,9 +16,8 @@ async function bootstrap() {
   // Swagger setup
   const config = new DocumentBuilder()
     .setTitle('BBQ Weather API')
-    .setDescription('The BBQ Weather API description')
+    .setDescription('Weather-focused web application designed to help users determine optimal BBQ days.')
     .setVersion('1.0')
-    .addTag('bbq-weather')
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, documentFactory);
