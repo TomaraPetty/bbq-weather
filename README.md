@@ -30,11 +30,57 @@ This document outlines the current architecture, dependencies, and future develo
 - ** Nx Monorepo**  
   Managed with **Nx** to organize code, share libraries, and streamline development across multiple apps and libraries.
 
+## MVP Functionality
+- Display current weather for a city that the user enters.
+
+- Provide BBQ suitability based on temperature (in the future include a rating based on temp, precipitation and cloud cover).
+
+- Basic responsive UI built with modern frontend frameworks inside the Nx monorepo.
+
+- Single OpenWeather API key (free-tier).
+
+- No authentication required.
+
+- Static hosting/development environment.
+
+
+## Current Limitations
+- API Rate Limits: The free-tier OpenWeather API has strict limits. Exceeding usage may result in throttling or downtime.
+
+- No User Accounts: All users access the same experience; no personalization or session persistence.
+
+- No Monetization: No paid features or payment infrastructure implemented.
+
+- Limited Deployment: Not currently set up for dynamic scaling of traffic to the site.
+
 ## 🚧 Getting Started (Local Development)
 
 Follow these steps to get BBQ Weather running locally in a development environment.
 
 ---
+
+### Clone the repo:
+```bash
+git clone git@github.com:TomaraPetty/bbq-weather.git
+```
+
+### 🔐 Environment Variables
+
+To run the application locally, you'll need to set up the required environment variables.
+
+Create a `.env` file in the root of the project (and/or in `apps/api` if your API reads from local `.env` files) with the following:
+
+```env
+OPENWEATHER_API_KEY='your-api-key'
+```
+
+🌦️ This key is required to fetch weather data from the OpenWeather API. You can get one by signing up at https://openweathermap.org/api.
+
+**Notes**
+The backend (NestJS) uses dotenv to load variables automatically on startup.
+
+Avoid committing .env files to version control. Be sure to add .env to your .gitignore.
+
 
 ### 1. **Install Dependencies**
 
@@ -79,24 +125,54 @@ cd apps/bbq_weather
 npm run test
 ```
 
+## 🚀 Future Plans
+
+### 1. Scaling the Application
+
+- **OpenWeather Paid Plan**  
+  Upgrade to a commercial OpenWeather plan to support increased API usage and additional features.
+
+- **Vercel Hosting**  
+  Deploy the app to [Vercel](https://vercel.com) for:
+  - Automatic scaling
+  - Global CDN
+  - Fast, serverless deployments
+
+- **Monitoring & Logging**  
+  Integrate tools such as:
+  - [Sentry](https://sentry.io) for error monitoring  
+  - [LogRocket](https://logrocket.com) for session replay  
+  - [Datadog](https://www.datadoghq.com) for performance tracking
+
 ---
 
-## 🔐 Environment Variables
+### 2. 👥 User Management & Paywall
 
-To run the application locally, you'll need to set up the required environment variables.
+#### 🔐 Authentication
 
-Create a `.env` file in the root of the project (and/or in `apps/api` if your API reads from local `.env` files) with the following:
+- Integrate third-party authentication with Auth0, Firebase, or NextAuth
+- Support user sessions with full login/signup flow
 
-```env
-OPENWEATHER_API_KEY='your-api-key'
-```
+#### User Portal
 
-🌦️ This key is required to fetch weather data from the OpenWeather API. You can get one by signing up at https://openweathermap.org/api.
+- Users can manage:
+  - Account settings  
+  - Subscription status  
+  - Personalized BBQ weather alerts
 
-Notes
-The backend (NestJS) uses dotenv to load variables automatically on startup.
+#### Payment Gateway
 
-Avoid committing .env files to version control. Be sure to add .env to your .gitignore.
+- Implement [Stripe](https://stripe.com) for handling subscriptions
+- Gate premium features such as:
+  - Extended forecasts with adjustable range (7–30+ days)
+  - Dashboard with optimal BBQ destinations
+  - BBQ recommendation engine powered by machine learning
+  - More forecast details (clouds, wind, etc.)
+  - Saved search history
+  - Custom alerts
+  - Historical weather data
+
+---
 
 If you have any issues, open an issue or email: tomara.petty@gmail.com.
 
