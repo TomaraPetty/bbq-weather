@@ -27,8 +27,22 @@ This document outlines the current architecture, dependencies, and future develo
 - [Useful links](#useful-links)
 
 ## Video Demo
+https://github.com/user-attachments/assets/45167658-a805-4465-9588-d74f58f1ac43
 
 ### Example entries with responses
+Entry:
+![Screenshot 2025-05-13 at 3 27 47 PM](https://github.com/user-attachments/assets/37c355f4-f5e2-4678-a767-137895bb5a49)
+Response:
+![Screenshot 2025-05-13 at 3 31 43 PM](https://github.com/user-attachments/assets/cc9e7575-07f0-4dff-9082-a7acf04e8faa)
+Entry:
+![Screenshot 2025-05-13 at 3 32 59 PM](https://github.com/user-attachments/assets/cd13f8b9-616a-478d-9cfd-98d27dbc9793)
+Response:
+![Screenshot 2025-05-13 at 3 33 13 PM](https://github.com/user-attachments/assets/0f917144-2d56-4d63-83da-9aea158aaafa)
+
+If there is an error fetching data from the api you will get this message:
+![Screenshot 2025-05-13 at 3 28 23 PM](https://github.com/user-attachments/assets/db10dcec-6c8c-4b53-8e04-490885adcbf6)
+
+In the future more robust error handling should be added to manage additional errors and edge cases. 
 
 ## 🚀 Features
 
