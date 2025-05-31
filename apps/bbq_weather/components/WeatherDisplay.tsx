@@ -1,5 +1,5 @@
 import React from 'react';
-import { WeatherData } from '../page';
+import { WeatherData } from '../app/page';
 
 interface WeatherDisplayProps {
   loading: boolean;
