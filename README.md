@@ -173,6 +173,11 @@ npx nx build bbq_weather
 
 ### 6. **Run tests:**
 To run Jest tests for frontend or backend:
+E2E API test:
+```
+// From root level
+npm run test
+```
 Backend (NestJS API):
 ```
 cd apps/api
