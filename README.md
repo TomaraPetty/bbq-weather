@@ -71,7 +71,10 @@ In the future more robust error handling should be added to manage additional er
 
 - **Full Testing Coverage**  
   Uses **Jest** for unit and integration tests across both frontend and backend codebases.
-  There should also be better messaging delivered to the user when errors occure. 
+  
+- **Error Handling**  
+  Uses **Logger** to log helpful messages in the terminal for efficient debbugging.
+  Helpful error messages are delivered to the user via the UI when api errors occure. 
 
 - **Continuous Integration**  
   Automated testing and build pipelines configured via **GitHub Actions** for consistent CI/CD.
