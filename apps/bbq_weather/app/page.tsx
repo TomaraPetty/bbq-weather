@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import CityDialog from './components/CityDialog';
-import Hero from './components/Hero';
-import WeatherDisplay from './components/WeatherDisplay';
+import CityDialog from '../components/CityDialog';
+import Hero from '../components/Hero';
+import WeatherDisplay from '../components/WeatherDisplay';
 import { Loader2 } from 'lucide-react';
 
 export interface WeatherData {
