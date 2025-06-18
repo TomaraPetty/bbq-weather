@@ -5,6 +5,10 @@ const path = require('path');
  * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
  **/
 const nextConfig = {
+  output: 'export',
+  images: {
+    unoptimized: true,
+  },
   // Use this to set Nx-specific options
   // See: https://nx.dev/recipes/next/next-config-setup
   nx: {},
