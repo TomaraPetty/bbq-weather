@@ -9,6 +9,8 @@ on:
 permissions:
   actions: read
   contents: read
+  pages: write
+  id-token: write
 
 jobs:
   main:
@@ -52,3 +54,18 @@ jobs:
       # Debug cache
       - name: List .next/cache contents
         run: ls -lR .next/cache || echo "No cache directory"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist/apps/bbq_weather/.next
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
